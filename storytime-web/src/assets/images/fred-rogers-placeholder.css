@@ -1,0 +1,63 @@
+/* 
+ * Placeholder for Fred Rogers' Image
+ * 
+ * This file serves as a placeholder and documentation for the Fred Rogers image.
+ * 
+ * Image Requirements:
+ * - Filename: fred-rogers-cardigan.jpg or fred-rogers-cardigan.png
+ * - Dimensions: Recommended 400x400px minimum for good quality
+ * - Content: Fred Rogers in his iconic red cardigan sweater
+ * - Style: Professional but warm photograph, preferably from his TV show era
+ * - Usage: Will be displayed on the home page with gentle styling
+ * 
+ * Sources for image:
+ * - Fred Rogers Productions official media
+ * - PBS archives
+ * - Creative Commons licensed images
+ * - Public domain photographs
+ * 
+ * Alternative: If no suitable image is available, a respectful illustration
+ * or silhouette with cardigan and tie could be used instead.
+ * 
+ * CSS class that will be applied: .rogers-portrait
+ */
+
+.rogers-portrait {
+  width: 200px;
+  height: 200px;
+  border-radius: var(--rogers-radius-xl);
+  border: 4px solid var(--rogers-red);
+  box-shadow: var(--rogers-shadow-warm);
+  object-fit: cover;
+  transition: var(--rogers-transition-gentle);
+}
+
+.rogers-portrait:hover {
+  transform: scale(1.05);
+  box-shadow: var(--rogers-shadow-cozy);
+}
+
+/* Placeholder styling for when image is not available */
+.rogers-portrait-placeholder {
+  width: 200px;
+  height: 200px;
+  border-radius: var(--rogers-radius-xl);
+  border: 4px solid var(--rogers-red);
+  background: linear-gradient(135deg, var(--rogers-red) 0%, var(--rogers-warm-gray) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: var(--rogers-font-family-accent);
+  font-weight: 600;
+  text-align: center;
+  box-shadow: var(--rogers-shadow-warm);
+  transition: var(--rogers-transition-gentle);
+}
+
+.rogers-portrait-placeholder::before {
+  content: '🧶\A"Won\'t you be\Amy neighbor?"';
+  white-space: pre-line;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}

@@ -1,0 +1,218 @@
+/* 
+ * Mr. Rogers Design Philosophy Stylesheet
+ * 
+ * This stylesheet embodies Fred Rogers' gentle, warm, and accessible approach:
+ * - Warm, comforting colors inspired by his neighborhood
+ * - Soft, rounded edges that feel welcoming
+ * - Generous spacing for a peaceful, unhurried feeling
+ * - Typography that's friendly and easily readable
+ * - Gentle transitions and subtle interactions
+ */
+
+:root {
+  /* Fred Rogers Neighborhood Color Palette */
+  --rogers-red: #c62d42;           /* His iconic cardigan red */
+  --rogers-blue: #4a90e2;          /* Calm, trustworthy blue */
+  --rogers-green: #7cb342;         /* Nature, growth, Daniel Tiger */
+  --rogers-yellow: #ffd54f;        /* Warm sunshine, optimism */
+  --rogers-cream: #faf8f3;         /* Soft, welcoming background */
+  --rogers-warm-gray: #8d7053;     /* Comfortable, earthy */
+  --rogers-light-gray: #f5f3f0;    /* Gentle contrast */
+  --rogers-dark-gray: #444444;     /* Readable text, not harsh black */
+  
+  /* Neighborhood-inspired gradients */
+  --rogers-sunset: linear-gradient(135deg, #ffd54f 0%, #c62d42 100%);
+  --rogers-sky: linear-gradient(135deg, #4a90e2 0%, #7cb342 100%);
+  --rogers-cardigan: linear-gradient(135deg, #c62d42 0%, #8d7053 100%);
+  
+  /* Typography scale inspired by gentle conversation */
+  --rogers-font-family: "Georgia", "Times New Roman", serif;
+  --rogers-font-family-accent: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  
+  /* Spacing inspired by comfortable conversation distance */
+  --rogers-space-xs: 0.5rem;
+  --rogers-space-sm: 1rem;
+  --rogers-space-md: 1.5rem;
+  --rogers-space-lg: 2rem;
+  --rogers-space-xl: 3rem;
+  --rogers-space-2xl: 4rem;
+  
+  /* Border radius for gentle, welcoming shapes */
+  --rogers-radius-sm: 8px;
+  --rogers-radius-md: 12px;
+  --rogers-radius-lg: 16px;
+  --rogers-radius-xl: 24px;
+  
+  /* Shadows for depth without harshness */
+  --rogers-shadow-gentle: 0 2px 8px rgba(196, 45, 66, 0.1);
+  --rogers-shadow-warm: 0 4px 16px rgba(196, 45, 66, 0.15);
+  --rogers-shadow-cozy: 0 8px 32px rgba(196, 45, 66, 0.2);
+  
+  /* Transitions for patient, gentle interactions */
+  --rogers-transition-gentle: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --rogers-transition-warm: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Base styling reflecting Fred Rogers' gentle approach */
+.rogers-container {
+  background: var(--rogers-cream);
+  color: var(--rogers-dark-gray);
+  font-family: var(--rogers-font-family);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+/* Typography classes inspired by gentle conversation */
+.rogers-title {
+  font-family: var(--rogers-font-family-accent);
+  font-weight: 600;
+  background: var(--rogers-cardigan);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
+}
+
+.rogers-subtitle {
+  color: var(--rogers-warm-gray);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.rogers-body {
+  color: var(--rogers-dark-gray);
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+/* Card styling inspired by invitation and welcome */
+.rogers-card {
+  background: white;
+  border-radius: var(--rogers-radius-lg);
+  padding: var(--rogers-space-lg);
+  box-shadow: var(--rogers-shadow-gentle);
+  border: 2px solid var(--rogers-light-gray);
+  transition: var(--rogers-transition-gentle);
+  position: relative;
+  overflow: hidden;
+}
+
+.rogers-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--rogers-sunset);
+  opacity: 0;
+  transition: var(--rogers-transition-gentle);
+}
+
+.rogers-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--rogers-shadow-cozy);
+  border-color: var(--rogers-red);
+}
+
+.rogers-card:hover::before {
+  opacity: 1;
+}
+
+/* Button styling inspired by gentle invitation */
+.rogers-button {
+  background: var(--rogers-red);
+  color: white;
+  border: none;
+  border-radius: var(--rogers-radius-md);
+  padding: var(--rogers-space-sm) var(--rogers-space-lg);
+  font-family: var(--rogers-font-family-accent);
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--rogers-transition-gentle);
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: var(--rogers-shadow-gentle);
+}
+
+.rogers-button:hover {
+  background: linear-gradient(135deg, var(--rogers-red) 0%, #a02238 100%);
+  transform: translateY(-2px);
+  box-shadow: var(--rogers-shadow-warm);
+}
+
+.rogers-button:active {
+  transform: translateY(0);
+  box-shadow: var(--rogers-shadow-gentle);
+}
+
+/* Icon styling for neighborhood elements */
+.rogers-icon {
+  display: inline-block;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: var(--rogers-light-gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--rogers-space-sm);
+  transition: var(--rogers-transition-gentle);
+}
+
+.rogers-icon:hover {
+  background: var(--rogers-yellow);
+  transform: scale(1.1);
+}
+
+/* Grid layout for gentle organization */
+.rogers-grid {
+  display: grid;
+  gap: var(--rogers-space-lg);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* Responsive design maintaining comfort across devices */
+@media (max-width: 768px) {
+  .rogers-grid {
+    grid-template-columns: 1fr;
+    gap: var(--rogers-space-md);
+  }
+  
+  .rogers-card {
+    padding: var(--rogers-space-md);
+  }
+  
+  .rogers-title {
+    font-size: 2rem;
+  }
+}
+
+/* Accessibility features reflecting inclusive design */
+.rogers-focus-visible:focus-visible {
+  outline: 3px solid var(--rogers-blue);
+  outline-offset: 2px;
+  border-radius: var(--rogers-radius-sm);
+}
+
+/* Animation for gentle page entrance */
+@keyframes rogers-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rogers-animate-in {
+  animation: rogers-fade-in 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+/* Staggered animation for multiple elements */
+.rogers-stagger-1 { animation-delay: 0.1s; }
+.rogers-stagger-2 { animation-delay: 0.2s; }
+.rogers-stagger-3 { animation-delay: 0.3s; }
+.rogers-stagger-4 { animation-delay: 0.4s; }

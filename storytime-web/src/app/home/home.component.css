@@ -1,1 +1,244 @@
-/* Empty CSS file for home component */
+/* 
+ * Home Component Styles - Card-based with Mr. Rogers Sidebar
+ * Reverted to card styling with Mr. Rogers elements in right sidebar
+ */
+
+:host {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: block;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #c62d42 0%, #8d7053 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: #6b7280;
+  margin-bottom: 0;
+}
+
+/* Two-column layout: main content + sidebar */
+.main-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 3rem;
+  flex: 1;
+}
+
+.content-area {
+  display: flex;
+  flex-direction: column;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  width: 100%;
+}
+
+.story-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid #e5e7eb;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.story-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  z-index: 10;
+  height: auto;
+  min-height: 200px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.card-emoji {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #1f2937;
+}
+
+.card-description {
+  color: #6b7280;
+  line-height: 1.6;
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.story-card:hover .card-description {
+  display: block;
+  -webkit-line-clamp: unset;
+  line-clamp: unset;
+  -webkit-box-orient: unset;
+  overflow: visible;
+}
+
+/* Sidebar styling */
+.sidebar {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e7eb;
+  height: fit-content;
+  position: sticky;
+  top: 2rem;
+}
+
+.rogers-portrait-section {
+  text-align: center;
+}
+
+.rogers-portrait-container {
+  margin-bottom: 1.5rem;
+}
+
+.rogers-portrait {
+  width: 200px;
+  height: 200px;
+  border-radius: 24px;
+  border: 4px solid #c62d42;
+  box-shadow: 0 4px 16px rgba(196, 45, 66, 0.15);
+  object-fit: cover;
+  transition: all 0.3s ease;
+  display: block;
+  margin: 0 auto;
+}
+
+.rogers-portrait:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 32px rgba(196, 45, 66, 0.2);
+}
+
+.rogers-portrait-placeholder {
+  width: 200px;
+  height: 200px;
+  border-radius: 24px;
+  border: 4px solid #c62d42;
+  background: linear-gradient(135deg, #c62d42 0%, #8d7053 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(196, 45, 66, 0.15);
+  transition: all 0.3s ease;
+  margin: 0 auto;
+}
+
+.rogers-portrait-placeholder::before {
+  content: '🧶\A"Won\'t you be\Amy neighbor?"';
+  white-space: pre-line;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.rogers-portrait-quote {
+  color: #6b7280;
+  font-style: italic;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .main-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .sidebar {
+    order: -1; /* Show sidebar above content on mobile */
+    position: static;
+    padding: 1.5rem;
+  }
+  
+  .rogers-portrait,
+  .rogers-portrait-placeholder {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .container {
+    padding: 1rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+  }
+  
+  .rogers-portrait,
+  .rogers-portrait-placeholder {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .sidebar {
+    padding: 1rem;
+  }
+}

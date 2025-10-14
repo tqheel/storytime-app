@@ -1,0 +1,212 @@
+/* 
+ * Mr. Rogers' Neighborhood Icons
+ * CSS-based iconography representing elements from the show
+ */
+
+/* Trolley Icon */
+.rogers-icon-trolley {
+  width: 3rem;
+  height: 2rem;
+  background: linear-gradient(135deg, #c62d42 0%, #8d7053 50%, #ffd54f 100%);
+  border-radius: 8px 8px 4px 4px;
+  position: relative;
+  margin: 0.5rem;
+  display: inline-block;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.rogers-icon-trolley::before {
+  content: '';
+  position: absolute;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #444;
+  border-radius: 50%;
+  bottom: -0.25rem;
+  left: 0.25rem;
+  box-shadow: 2rem 0 0 #444;
+}
+
+.rogers-icon-trolley::after {
+  content: '';
+  position: absolute;
+  width: 0.3rem;
+  height: 0.3rem;
+  background: #ffd54f;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 
+    -0.8rem 0 0 #ffd54f,
+    0.8rem 0 0 #ffd54f;
+}
+
+/* Daniel Tiger Icon */
+.rogers-icon-daniel {
+  width: 2.5rem;
+  height: 2.5rem;
+  background: #ff6b35;
+  border-radius: 50%;
+  position: relative;
+  display: inline-block;
+  margin: 0.5rem;
+}
+
+.rogers-icon-daniel::before {
+  content: '';
+  position: absolute;
+  width: 0.4rem;
+  height: 0.4rem;
+  background: #ff6b35;
+  border-radius: 50% 50% 0 0;
+  top: -0.2rem;
+  left: 0.5rem;
+  box-shadow: 1rem 0 0 #ff6b35;
+  transform: rotate(-20deg);
+}
+
+.rogers-icon-daniel::after {
+  content: '🐯';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2rem;
+}
+
+/* King Friday Icon */
+.rogers-icon-king {
+  width: 2.5rem;
+  height: 3rem;
+  background: linear-gradient(135deg, #ffd54f 0%, #c62d42 100%);
+  border-radius: 0 0 50% 50%;
+  position: relative;
+  display: inline-block;
+  margin: 0.5rem;
+}
+
+.rogers-icon-king::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 0.5rem;
+  background: #ffd54f;
+  top: -0.5rem;
+  left: 0;
+  border-radius: 4px 4px 0 0;
+  box-shadow: 
+    inset 0.5rem 0 0 #c62d42,
+    inset -0.5rem 0 0 #c62d42;
+}
+
+.rogers-icon-king::after {
+  content: '👑';
+  position: absolute;
+  top: 0.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1rem;
+}
+
+/* Fred Rogers Icon */
+.rogers-icon-fred {
+  width: 2.5rem;
+  height: 2.5rem;
+  background: linear-gradient(135deg, #c62d42 0%, #8d7053 100%);
+  border-radius: 50%;
+  position: relative;
+  display: inline-block;
+  margin: 0.5rem;
+  box-shadow: 0 2px 8px rgba(196, 45, 66, 0.3);
+}
+
+.rogers-icon-fred::before {
+  content: '';
+  position: absolute;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: #f4a261;
+  border-radius: 50%;
+  top: 0.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.rogers-icon-fred::after {
+  content: '🧶';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1rem;
+}
+
+/* Animated hover effects */
+.rogers-icon-trolley:hover {
+  animation: trolley-chug 1s ease-in-out infinite;
+}
+
+@keyframes trolley-chug {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(2px); }
+  75% { transform: translateX(-2px); }
+}
+
+.rogers-icon-daniel:hover {
+  animation: daniel-purr 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes daniel-purr {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
+}
+
+.rogers-icon-king:hover {
+  animation: king-bow 1s ease-in-out;
+}
+
+@keyframes king-bow {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(5deg); }
+}
+
+.rogers-icon-fred:hover {
+  animation: fred-warm 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes fred-warm {
+  0% { box-shadow: 0 2px 8px rgba(196, 45, 66, 0.3); }
+  100% { box-shadow: 0 4px 16px rgba(196, 45, 66, 0.6); }
+}
+
+/* Icon container for consistent spacing */
+.rogers-icons-container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+
+/* Emoji fallbacks for better accessibility */
+.rogers-icon-trolley-emoji::after {
+  content: '🚋';
+  font-size: 2rem;
+}
+
+.rogers-icon-daniel-emoji::after {
+  content: '🐯';
+  font-size: 2rem;
+}
+
+.rogers-icon-king-emoji::after {
+  content: '👑';
+  font-size: 2rem;
+}
+
+.rogers-icon-fred-emoji::after {
+  content: '🧶';
+  font-size: 2rem;
+}

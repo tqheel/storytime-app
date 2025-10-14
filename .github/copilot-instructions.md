@@ -68,6 +68,7 @@ From `storytime-web/` directory:
 - Increment package.json file to stay in-sync with changelog.
 - Newest changelog entry should be at the top of the file.
 - Only show the latest changelog entry in the README.md file.
+- When the version has been commited, update the changelog with the Git commit ID.
 
 ## Fred Rogers Design Philosophy
 All content should reflect Rogers' approach:
