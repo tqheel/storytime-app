@@ -1,0 +1,46 @@
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #F8F9FA;
+  color: #343A40;
+}
+
+.timeline-item::before { 
+  content: ''; 
+  position: absolute; 
+  top: 100%; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  width: 2px; 
+  height: 20px; 
+  background-color: #DEE2E6; 
+}
+
+.timeline-item .dot { 
+  transition: transform 0.3s ease, background-color 0.3s ease; 
+}
+
+.timeline-item:hover .dot { 
+  transform: scale(1.5); 
+}
+
+.chart-container { 
+  position: relative; 
+  width: 100%; 
+  max-width: 900px; 
+  margin-left: auto; 
+  margin-right: auto; 
+  height: 50vh; 
+  max-height: 500px; 
+}
+
+.nav-link.active-internet { 
+  background-color: #EEF2FF; 
+  color: #4338CA; 
+  font-weight: 500; 
+}
+
+.nav-link.active-ai { 
+  background-color: #D1FAE5; 
+  color: #065F46; 
+  font-weight: 500; 
+}
