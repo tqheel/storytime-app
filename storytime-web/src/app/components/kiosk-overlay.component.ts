@@ -15,6 +15,23 @@ import { KioskService } from '../services/kiosk.service';
         <button class="kiosk-close-btn" 
                 (click)="kioskService.closeKioskMode()" 
                 aria-label="Close kiosk mode">×</button>
+        
+        <!-- Navigation Arrow - Left -->
+        <button *ngIf="kioskService.canNavigatePrevious" 
+                class="kiosk-nav-btn kiosk-nav-left"
+                (click)="kioskService.navigateToPrevious()"
+                aria-label="Previous section">
+          ←
+        </button>
+        
+        <!-- Navigation Arrow - Right -->
+        <button *ngIf="kioskService.canNavigateNext" 
+                class="kiosk-nav-btn kiosk-nav-right"
+                (click)="kioskService.navigateToNext()"
+                aria-label="Next section">
+          →
+        </button>
+        
         <div class="kiosk-card">
           <h1 class="kiosk-title" [innerHTML]="(kioskService.kioskData$ | async)?.title"></h1>
           <p class="kiosk-text" [innerHTML]="(kioskService.kioskData$ | async)?.text"></p>

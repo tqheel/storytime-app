@@ -63,10 +63,51 @@
   box-shadow: var(--rogers-shadow-warm);
 }
 
+/* Navigation Arrow Buttons */
+.kiosk-nav-btn {
+  position: absolute;
+  bottom: 3rem;
+  width: 5rem;
+  height: 5rem;
+  background: var(--rogers-blue);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 3rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: var(--rogers-shadow-gentle);
+  z-index: 10000;
+}
+
+.kiosk-nav-btn:hover {
+  background: var(--rogers-red);
+  transform: scale(1.1);
+  box-shadow: var(--rogers-shadow-warm);
+}
+
+.kiosk-nav-btn:active {
+  transform: scale(1.05);
+}
+
+.kiosk-nav-left {
+  left: 3rem;
+}
+
+.kiosk-nav-right {
+  right: 3rem;
+}
+
 .kiosk-card {
   text-align: center;
   max-width: 100%;
   padding: 2rem;
+  overflow-y: auto;
+  max-height: 100%;
 }
 
 .kiosk-title {
@@ -85,6 +126,7 @@
   font-family: var(--rogers-font-family);
   max-width: 100%;
   margin: 0 auto;
+  white-space: pre-line;
 }
 
 /* Responsive Kiosk Mode */
@@ -99,6 +141,21 @@
   
   .kiosk-text {
     font-size: 2rem;
+  }
+
+  .kiosk-nav-btn {
+    width: 4rem;
+    height: 4rem;
+    font-size: 2.5rem;
+    bottom: 2rem;
+  }
+
+  .kiosk-nav-left {
+    left: 2rem;
+  }
+
+  .kiosk-nav-right {
+    right: 2rem;
   }
 }
 
@@ -126,6 +183,21 @@
   .kiosk-text {
     font-size: 1.5rem;
   }
+
+  .kiosk-nav-btn {
+    width: 3rem;
+    height: 3rem;
+    font-size: 2rem;
+    bottom: 1rem;
+  }
+
+  .kiosk-nav-left {
+    left: 1rem;
+  }
+
+  .kiosk-nav-right {
+    right: 1rem;
+  }
 }
 
 /* Clickable Story Content Styles */
@@ -142,4 +214,30 @@
 
 .story-content-clickable:active {
   transform: translateY(-2px);
+}
+
+/* Accessibility for Navigation Buttons */
+.kiosk-nav-btn:focus {
+  outline: 3px solid var(--rogers-yellow);
+  outline-offset: 3px;
+}
+
+/* Animation for Navigation Buttons */
+@keyframes pulseHint {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+.kiosk-nav-btn {
+  animation: pulseHint 2s ease-in-out infinite;
+}
+
+.kiosk-nav-btn:hover {
+  animation: none;
 }

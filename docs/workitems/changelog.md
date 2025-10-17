@@ -5,6 +5,54 @@ All notable changes to the Storytime App will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.6] - 2025-10-17 - TBD
+
+### Added
+- **MVP Story Component**: Complete interactive story about Minimum Viable Product concept using Fred Rogers' gentle storytelling approach
+  - 8 expandable cards covering What is MVP, Four Key Parts, The Journey, Real Examples, Why MVP is Kind, Common Questions, MVP Mindset, and Conclusion
+  - Content organized into logical sections for progressive learning
+  - Fred Rogers-inspired narrative about building meaningful products thoughtfully
+- **Enhanced Kiosk Navigation System**: Multi-section navigation for content-rich presentations
+  - Left/Right navigation arrows for moving between sections within kiosk mode
+  - Visual indicators showing available navigation directions
+  - Smooth transitions between content sections with proper state management
+- **Keyboard Navigation Enhancement**: Complete keyboard support for kiosk mode
+  - Arrow Left key navigates to previous section
+  - Arrow Right key navigates to next section
+  - ESC key maintains exit functionality
+  - Prevents default browser behavior for arrow keys during kiosk mode
+- **Mouse Click Navigation**: Interactive arrow buttons for click-based navigation
+  - Large, accessible navigation buttons positioned at bottom of kiosk overlay
+  - Pulsing animation on navigation arrows for discoverability
+  - Responsive sizing for different screen sizes
+  - Hover effects for improved user feedback
+- **KioskService Extensions**: Enhanced service to support multi-section presentations
+  - `openKioskModeWithNavigation()` method for section-based content
+  - `navigateToNext()` and `navigateToPrevious()` methods for navigation control
+  - `canNavigateNext` and `canNavigatePrevious` getters for UI state management
+  - Section tracking with BehaviorSubjects for reactive state updates
+- **MVP Content Creation**: Comprehensive markdown content explaining MVP concepts
+  - Real-world examples: Wright Brothers, Amazon, Instagram
+  - Seven-step MVP journey with practical guidance
+  - Common questions and MVP mindset principles
+  - Emphasis on kindness, respect, and learning
+
+### Changed
+- **KioskOverlayComponent**: Updated to include conditional navigation arrow buttons
+- **Shared Kiosk CSS**: Enhanced with navigation button styles, animations, and responsive breakpoints
+- **Home Component**: Added MVP Story card to main navigation
+- **App Routes**: Registered MVP story component with lazy loading
+
+### Technical Details
+- Extended `KioskService` with `KioskSection` interface for multi-section support
+- Implemented reactive state management using RxJS BehaviorSubjects for navigation
+- Added global keyboard event listener with arrow key prevention during kiosk mode
+- Created responsive navigation button positioning with CSS absolute positioning
+- Implemented content overflow handling with scrollable kiosk cards
+- Added `white-space: pre-line` for proper text formatting in kiosk mode
+- Enhanced accessibility with aria-labels on all navigation controls
+- Optimized component performance with conditional rendering of navigation buttons
+
 ## [0.0.5] - 2025-10-16 - b3f919cf9f2a8e9d4c7b5a1f3e6d8c9a2b4e5f7g
 
 ### Added
