@@ -1,0 +1,145 @@
+/* 
+ * Shared Kiosk Mode Styles
+ * This file contains reusable CSS for kiosk presentation mode
+ * that can be imported by any story component
+ */
+
+/* Kiosk Mode Overlay */
+.kiosk-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.kiosk-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 1400px;
+  max-height: 900px;
+  background: var(--rogers-cream);
+  border-radius: var(--rogers-radius-xl);
+  padding: 4rem;
+  box-shadow: var(--rogers-shadow-warm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.kiosk-close-btn {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 4rem;
+  height: 4rem;
+  background: var(--rogers-cardigan);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 2.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: var(--rogers-shadow-gentle);
+  z-index: 10000;
+}
+
+.kiosk-close-btn:hover {
+  background: var(--rogers-cardigan-dark, #8B5A3C);
+  transform: scale(1.1);
+  box-shadow: var(--rogers-shadow-warm);
+}
+
+.kiosk-card {
+  text-align: center;
+  max-width: 100%;
+  padding: 2rem;
+}
+
+.kiosk-title {
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--rogers-dark-gray);
+  margin-bottom: 2rem;
+  line-height: 1.2;
+  font-family: var(--rogers-font-family-accent);
+}
+
+.kiosk-text {
+  font-size: 2.5rem;
+  line-height: 1.4;
+  color: var(--rogers-dark-gray);
+  font-family: var(--rogers-font-family);
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* Responsive Kiosk Mode */
+@media (max-width: 1200px) {
+  .kiosk-content {
+    padding: 3rem;
+  }
+  
+  .kiosk-title {
+    font-size: 3.5rem;
+  }
+  
+  .kiosk-text {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .kiosk-overlay {
+    padding: 1rem;
+  }
+  
+  .kiosk-content {
+    padding: 2rem;
+  }
+  
+  .kiosk-close-btn {
+    top: 1rem;
+    right: 1rem;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.8rem;
+  }
+  
+  .kiosk-title {
+    font-size: 2.5rem;
+  }
+  
+  .kiosk-text {
+    font-size: 1.5rem;
+  }
+}
+
+/* Clickable Story Content Styles */
+.story-content-clickable {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.story-content-clickable:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--rogers-shadow-warm);
+  background: linear-gradient(135deg, white 0%, var(--rogers-cream) 100%);
+}
+
+.story-content-clickable:active {
+  transform: translateY(-2px);
+}

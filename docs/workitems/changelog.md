@@ -5,6 +5,34 @@ All notable changes to the Storytime App will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.5] - 2025-10-16
+
+### Added
+- **Reusable Kiosk Mode Infrastructure**: Created comprehensive kiosk system for all future story components
+  - `KioskService` - Global state management for kiosk mode across all stories
+  - `KioskOverlayComponent` - Reusable overlay component for consistent presentation
+  - Shared CSS framework (`kiosk.css`) for standardized kiosk styling
+- **Kiosk Mode for AI vs Internet Story**: Implemented full-screen presentation mode for all milestone cards
+- **Click-to-Expand Functionality**: Added click handlers to milestone content cards for seamless kiosk activation
+- **Large-Font Presentation View**: Created kiosk styling with large, readable fonts optimized for meeting rooms and widescreen displays
+- **Interactive Card Indicators**: Added visual hover effects and cursor styling to indicate clickable content
+- **Keyboard Navigation Support**: Implemented ESC key and click-to-close functionality for exiting kiosk mode
+- **Implementation Documentation**: Created comprehensive guide for adding kiosk mode to future story components
+
+### Changed
+- **Refactored Kiosk Architecture**: Moved from component-specific implementation to reusable service-based system
+- **Milestone Card Interaction**: Enhanced milestone content cards with standardized hover animations and clickable behavior
+- **CSS Organization**: Extracted kiosk styles into shared stylesheet for consistency across all stories
+- **Component Dependencies**: Updated AI vs Internet component to use new KioskService and KioskOverlayComponent
+
+### Technical Details
+- Added `KioskService` with RxJS observables for reactive state management
+- Created `KioskOverlayComponent` as standalone, reusable component
+- Implemented shared CSS framework with responsive breakpoints for various screen sizes
+- Added comprehensive TypeScript interfaces for type-safe kiosk data
+- Created modular architecture supporting unlimited future story implementations
+- Added body scroll prevention and keyboard navigation during kiosk mode
+
 ## [0.0.4] - 2025-10-16 - af90f68cf705e327c23d539a092c8f7b0b38aefe
 
 ### Added

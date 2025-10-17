@@ -40,12 +40,12 @@ The application will automatically reload when you make changes to the source fi
 - `npm run watch` - Builds the app in watch mode
 
 ## Versions
-### version 0.0.4
-- **Pure Mr. Rogers CSS Framework**: Completely replaced Tailwind CSS with custom neighborhood-themed CSS framework for authentic Fred Rogers aesthetic
-- **Zero External Dependencies**: Eliminated all CDN dependencies including Chart.js, converting to local npm packages for complete self-containment
-- **Universal Theme Application**: Applied comprehensive neighborhood design philosophy across all components and visual elements
-- **Custom Component Styling**: Created dedicated Mr. Rogers-themed CSS replacing all utility classes with semantic neighborhood styling
-- **Complete Visual Cohesion**: Standardized color scheme using cardigan red, neighborhood blue, and warm grays throughout entire application
-- **Enhanced Performance**: Converted Chart.js from CDN to local import for faster initialization and offline capability
-- **Self-Contained Application**: App now works completely offline with zero external runtime dependencies
+### version 0.0.5
+- **Reusable Kiosk Mode Framework**: Built comprehensive presentation system that any future story can easily implement
+- **Interactive Story Presentation**: Added full-screen kiosk mode for AI vs Internet story with large, meeting-room-friendly fonts
+- **Click-to-Present Functionality**: Made all story content cards clickable for seamless transition to presentation mode
+- **Widescreen Optimized Display**: Created responsive kiosk layout optimized for distance viewing on large displays and projectors
+- **Enhanced User Interaction**: Added visual hover effects and intuitive navigation with ESC key and click-to-close functionality
+- **Developer-Friendly Architecture**: Created reusable components, services, and documentation for easy kiosk implementation in future stories
+- **Meeting Room Ready**: Designed presentation mode specifically for storytelling in conference rooms and educational settings
 

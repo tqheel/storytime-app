@@ -1,10 +1,13 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import Chart from 'chart.js/auto';
+import { KioskService } from '../services/kiosk.service';
+import { KioskOverlayComponent } from '../components/kiosk-overlay.component';
 
 @Component({
   selector: 'app-ai-vs-internet',
-  imports: [RouterLink],
+  imports: [RouterLink, CommonModule, KioskOverlayComponent],
   template: `
     <div>
       <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -55,11 +58,11 @@ import Chart from 'chart.js/auto';
               <a href="#milestone-internet-iphone" class="nav-link internet-nav-link">The iPhone & Mobile Web</a>
             </nav></aside>
             <main class="content-main">
-              <div id="milestone-internet-modem" class="milestone-content"><h4 class="milestone-title internet-milestone-title">The Dial-Up Era: Low-Bandwidth Modems</h4><p class="milestone-text">During the 1980s and early 1990s, home access to the internet was made possible by analog modems over standard telephone lines. Speeds were incredibly slow, typically ranging from 2400 to 56,000 bits per second (56k). Using the internet meant the phone line was occupied. Despite these limitations, dial-up was the gateway for millions of early adopters.</p></div>
-              <div id="milestone-internet-mosaic" class="milestone-content"><h4 class="milestone-title internet-milestone-title">1993: Mosaic, The Browser that Opened the Web</h4><p class="milestone-text">Released in 1993, Mosaic was the first widely popular browser that could display images inline with text. Its user-friendly graphical interface made the World Wide Web suddenly explorable for everyday users, sparking the first major wave of internet adoption and directly leading to the development of Netscape and Internet Explorer. This is widely considered the inflection point for the mainstream internet.</p></div>
-              <div id="milestone-internet-aol" class="milestone-content"><h4 class="milestone-title internet-milestone-title">1995: "You've Got Mail!": AOL and the Rise of ISPs</h4><p class="milestone-text">In the mid-to-late 1990s, companies like America Online (AOL) brought the internet to the masses with curated online services, offering email, chat rooms, and news, all accessible through easy-to-install software. For many households, AOL was the internet, simplifying the daunting task of getting online and making it a household utility.</p></div>
-              <div id="milestone-internet-broadband" class="milestone-content"><h4 class="milestone-title internet-milestone-title">c. 2000: The Always-On Revolution: Broadband Internet</h4><p class="milestone-text">Beginning around 2000, broadband technologies like DSL and cable modems began to replace dial-up. This was a seismic shift, offering an "always-on" connection with dramatically faster speeds. This enabled rich media, streaming video, and online gaming, turning the internet from a place you visit into a constant, integrated part of daily life.</p></div>
-              <div id="milestone-internet-iphone" class="milestone-content"><h4 class="milestone-title internet-milestone-title">2007: The Internet in Your Pocket: The iPhone</h4><p class="milestone-text">The introduction of the iPhone in 2007 was the single most important catalyst for the mobile web. Its intuitive multi-touch interface and full-featured web browser untethered the internet from the desktop, making it accessible from anywhere, at any time, and forcing the creation of the mobile-first ecosystem we know today.</p></div>
+              <div id="milestone-internet-modem" class="milestone-content" (click)="openKioskMode('milestone-internet-modem')"><h4 class="milestone-title internet-milestone-title">The Dial-Up Era: Low-Bandwidth Modems</h4><p class="milestone-text">During the 1980s and early 1990s, home access to the internet was made possible by analog modems over standard telephone lines. Speeds were incredibly slow, typically ranging from 2400 to 56,000 bits per second (56k). Using the internet meant the phone line was occupied. Despite these limitations, dial-up was the gateway for millions of early adopters.</p></div>
+              <div id="milestone-internet-mosaic" class="milestone-content" (click)="openKioskMode('milestone-internet-mosaic')"><h4 class="milestone-title internet-milestone-title">1993: Mosaic, The Browser that Opened the Web</h4><p class="milestone-text">Released in 1993, Mosaic was the first widely popular browser that could display images inline with text. Its user-friendly graphical interface made the World Wide Web suddenly explorable for everyday users, sparking the first major wave of internet adoption and directly leading to the development of Netscape and Internet Explorer. This is widely considered the inflection point for the mainstream internet.</p></div>
+              <div id="milestone-internet-aol" class="milestone-content" (click)="openKioskMode('milestone-internet-aol')"><h4 class="milestone-title internet-milestone-title">1995: "You've Got Mail!": AOL and the Rise of ISPs</h4><p class="milestone-text">In the mid-to-late 1990s, companies like America Online (AOL) brought the internet to the masses with curated online services, offering email, chat rooms, and news, all accessible through easy-to-install software. For many households, AOL was the internet, simplifying the daunting task of getting online and making it a household utility.</p></div>
+              <div id="milestone-internet-broadband" class="milestone-content" (click)="openKioskMode('milestone-internet-broadband')"><h4 class="milestone-title internet-milestone-title">c. 2000: The Always-On Revolution: Broadband Internet</h4><p class="milestone-text">Beginning around 2000, broadband technologies like DSL and cable modems began to replace dial-up. This was a seismic shift, offering an "always-on" connection with dramatically faster speeds. This enabled rich media, streaming video, and online gaming, turning the internet from a place you visit into a constant, integrated part of daily life.</p></div>
+              <div id="milestone-internet-iphone" class="milestone-content" (click)="openKioskMode('milestone-internet-iphone')"><h4 class="milestone-title internet-milestone-title">2007: The Internet in Your Pocket: The iPhone</h4><p class="milestone-text">The introduction of the iPhone in 2007 was the single most important catalyst for the mobile web. Its intuitive multi-touch interface and full-featured web browser untethered the internet from the desktop, making it accessible from anywhere, at any time, and forcing the creation of the mobile-first ecosystem we know today.</p></div>
             </main>
           </div>
         </section>
@@ -90,11 +93,11 @@ import Chart from 'chart.js/auto';
               <a href="#milestone-ai-sora" class="nav-link ai-nav-link">The Text-to-Video Leap</a>
             </nav></aside>
             <main class="content-main">
-              <div id="milestone-ai-foundations" class="milestone-content"><h4 class="milestone-title ai-milestone-title">1950s-2010s: Early Foundations in Neural Networks</h4><p class="milestone-text">The concepts behind generative AI are not new. The idea of neural networks, modeled loosely on the human brain, dates back to the 1950s. Decades of theoretical work and heuristics development laid the groundwork, but progress was slow, hampered by a lack of computational power and data. Early models were interesting academically but had no practical, mainstream application.</p></div>
-              <div id="milestone-ai-gpu" class="milestone-content"><h4 class="milestone-title ai-milestone-title">2012: The ImageNet Moment & The GPU Impact</h4><p class="milestone-text">A pivotal moment occurred in 2012 when a deep neural network called AlexNet, trained on powerful Graphics Processing Units (GPUs), shattered records in the ImageNet image recognition competition. GPUs, originally designed for gaming, proved to be exceptionally good at the parallel processing required to train large neural networks. The increasing availability and affordability of this hardware for companies and researchers unlocked the ability to train much larger, more complex models, directly enabling the AI boom.</p></div>
-              <div id="milestone-ai-chatgpt" class="milestone-content"><h4 class="milestone-title ai-milestone-title">November 2022: The Inflection Point - ChatGPT</h4><p class="milestone-text">On November 30, 2022, OpenAI released ChatGPT. Its conversational fluency was a quantum leap beyond anything seen publicly. The intuitive chat interface removed all technical barriers, making it accessible to anyone with a browser. It reached 100 million monthly active users in two months, becoming the fastest-growing consumer application in history and marking the true beginning of the mainstream generative AI era.</p></div>
-              <div id="milestone-ai-gpt4" class="milestone-content"><h4 class="milestone-title ai-milestone-title">March 2023: The Leap in Power - GPT-4 & Multimodality</h4><p class="milestone-text">OpenAI launched GPT-4, a more powerful model that could understand and reason about images in addition to text ("multimodality"). It demonstrated vastly improved logic and creativity. This same period saw image generation models like Midjourney V5 produce photorealistic outputs, proving AI's capability across different creative domains.</p></div>
-              <div id="milestone-ai-sora" class="milestone-content"><h4 class="milestone-title ai-milestone-title">February 2024: Moving Pictures - The Text-to-Video Leap</h4><p class="milestone-text">OpenAI revealed Sora, a text-to-video model capable of generating stunningly realistic and coherent video clips from simple text prompts. While not publicly released, Sora represented another monumental leap, showcasing a future where high-quality video content could be created on demand, promising to revolutionize numerous industries.</p></div>
+              <div id="milestone-ai-foundations" class="milestone-content" (click)="openKioskMode('milestone-ai-foundations')"><h4 class="milestone-title ai-milestone-title">1950s-2010s: Early Foundations in Neural Networks</h4><p class="milestone-text">The concepts behind generative AI are not new. The idea of neural networks, modeled loosely on the human brain, dates back to the 1950s. Decades of theoretical work and heuristics development laid the groundwork, but progress was slow, hampered by a lack of computational power and data. Early models were interesting academically but had no practical, mainstream application.</p></div>
+              <div id="milestone-ai-gpu" class="milestone-content" (click)="openKioskMode('milestone-ai-gpu')"><h4 class="milestone-title ai-milestone-title">2012: The ImageNet Moment & The GPU Impact</h4><p class="milestone-text">A pivotal moment occurred in 2012 when a deep neural network called AlexNet, trained on powerful Graphics Processing Units (GPUs), shattered records in the ImageNet image recognition competition. GPUs, originally designed for gaming, proved to be exceptionally good at the parallel processing required to train large neural networks. The increasing availability and affordability of this hardware for companies and researchers unlocked the ability to train much larger, more complex models, directly enabling the AI boom.</p></div>
+              <div id="milestone-ai-chatgpt" class="milestone-content" (click)="openKioskMode('milestone-ai-chatgpt')"><h4 class="milestone-title ai-milestone-title">November 2022: The Inflection Point - ChatGPT</h4><p class="milestone-text">On November 30, 2022, OpenAI released ChatGPT. Its conversational fluency was a quantum leap beyond anything seen publicly. The intuitive chat interface removed all technical barriers, making it accessible to anyone with a browser. It reached 100 million monthly active users in two months, becoming the fastest-growing consumer application in history and marking the true beginning of the mainstream generative AI era.</p></div>
+              <div id="milestone-ai-gpt4" class="milestone-content" (click)="openKioskMode('milestone-ai-gpt4')"><h4 class="milestone-title ai-milestone-title">March 2023: The Leap in Power - GPT-4 & Multimodality</h4><p class="milestone-text">OpenAI launched GPT-4, a more powerful model that could understand and reason about images in addition to text ("multimodality"). It demonstrated vastly improved logic and creativity. This same period saw image generation models like Midjourney V5 produce photorealistic outputs, proving AI's capability across different creative domains.</p></div>
+              <div id="milestone-ai-sora" class="milestone-content" (click)="openKioskMode('milestone-ai-sora')"><h4 class="milestone-title ai-milestone-title">February 2024: Moving Pictures - The Text-to-Video Leap</h4><p class="milestone-text">OpenAI revealed Sora, a text-to-video model capable of generating stunningly realistic and coherent video clips from simple text prompts. While not publicly released, Sora represented another monumental leap, showcasing a future where high-quality video content could be created on demand, promising to revolutionize numerous industries.</p></div>
             </main>
           </div>
         </section>
@@ -127,11 +130,59 @@ import Chart from 'chart.js/auto';
           </div>
         </section>
       </div>
+
+      <!-- Kiosk Mode Overlay -->
+      <app-kiosk-overlay></app-kiosk-overlay>
     </div>
   `,
-  styleUrl: './ai-vs-internet-rogers.component.css'
+  styleUrls: ['./ai-vs-internet-rogers.component.css', '../shared/kiosk.css']
 })
 export class AiVsInternetComponent implements AfterViewInit {
+  
+  constructor(private kioskService: KioskService) {}
+
+  private milestoneData = new Map([
+    ['milestone-internet-modem', { 
+      title: 'The Dial-Up Era: Low-Bandwidth Modems',
+      text: 'During the 1980s and early 1990s, home access to the internet was made possible by analog modems over standard telephone lines. Speeds were incredibly slow, typically ranging from 2400 to 56,000 bits per second (56k). Using the internet meant the phone line was occupied. Despite these limitations, dial-up was the gateway for millions of early adopters.'
+    }],
+    ['milestone-internet-mosaic', {
+      title: '1993: Mosaic, The Browser that Opened the Web',
+      text: 'Released in 1993, Mosaic was the first widely popular browser that could display images inline with text. Its user-friendly graphical interface made the World Wide Web suddenly explorable for everyday users, sparking the first major wave of internet adoption and directly leading to the development of Netscape and Internet Explorer. This is widely considered the inflection point for the mainstream internet.'
+    }],
+    ['milestone-internet-aol', {
+      title: '1995: "You\'ve Got Mail!": AOL and the Rise of ISPs',
+      text: 'In the mid-to-late 1990s, companies like America Online (AOL) brought the internet to the masses with curated online services, offering email, chat rooms, and news, all accessible through easy-to-install software. For many households, AOL was the internet, simplifying the daunting task of getting online and making it a household utility.'
+    }],
+    ['milestone-internet-broadband', {
+      title: 'c. 2000: The Always-On Revolution: Broadband Internet',
+      text: 'Beginning around 2000, broadband technologies like DSL and cable modems began to replace dial-up. This was a seismic shift, offering an "always-on" connection with dramatically faster speeds. This enabled rich media, streaming video, and online gaming, turning the internet from a place you visit into a constant, integrated part of daily life.'
+    }],
+    ['milestone-internet-iphone', {
+      title: '2007: The Internet in Your Pocket: The iPhone',
+      text: 'The introduction of the iPhone in 2007 was the single most important catalyst for the mobile web. Its intuitive multi-touch interface and full-featured web browser untethered the internet from the desktop, making it accessible from anywhere, at any time, and forcing the creation of the mobile-first ecosystem we know today.'
+    }],
+    ['milestone-ai-foundations', {
+      title: '1950s-2010s: Early Foundations in Neural Networks',
+      text: 'The concepts behind generative AI are not new. The idea of neural networks, modeled loosely on the human brain, dates back to the 1950s. Decades of theoretical work and heuristics development laid the groundwork, but progress was slow, hampered by a lack of computational power and data. Early models were interesting academically but had no practical, mainstream application.'
+    }],
+    ['milestone-ai-gpu', {
+      title: '2012: The ImageNet Moment & The GPU Impact',
+      text: 'A pivotal moment occurred in 2012 when a deep neural network called AlexNet, trained on powerful Graphics Processing Units (GPUs), shattered records in the ImageNet image recognition competition. GPUs, originally designed for gaming, proved to be exceptionally good at the parallel processing required to train large neural networks. The increasing availability and affordability of this hardware for companies and researchers unlocked the ability to train much larger, more complex models, directly enabling the AI boom.'
+    }],
+    ['milestone-ai-chatgpt', {
+      title: 'November 2022: The Inflection Point - ChatGPT',
+      text: 'On November 30, 2022, OpenAI released ChatGPT. Its conversational fluency was a quantum leap beyond anything seen publicly. The intuitive chat interface removed all technical barriers, making it accessible to anyone with a browser. It reached 100 million monthly active users in two months, becoming the fastest-growing consumer application in history and marking the true beginning of the mainstream generative AI era.'
+    }],
+    ['milestone-ai-gpt4', {
+      title: 'March 2023: The Leap in Power - GPT-4 & Multimodality',
+      text: 'OpenAI launched GPT-4, a more powerful model that could understand and reason about images in addition to text ("multimodality"). It demonstrated vastly improved logic and creativity. This same period saw image generation models like Midjourney V5 produce photorealistic outputs, proving AI\'s capability across different creative domains.'
+    }],
+    ['milestone-ai-sora', {
+      title: 'February 2024: Moving Pictures - The Text-to-Video Leap',
+      text: 'OpenAI revealed Sora, a text-to-video model capable of generating stunningly realistic and coherent video clips from simple text prompts. While not publicly released, Sora represented another monumental leap, showcasing a future where high-quality video content could be created on demand, promising to revolutionize numerous industries.'
+    }]
+  ]);
 
   ngAfterViewInit(): void {
     // Initialize charts and navigation immediately since Chart.js is imported
@@ -302,5 +353,12 @@ export class AiVsInternetComponent implements AfterViewInit {
         link.classList.remove(activeClass);
       }
     });
+  }
+
+  openKioskMode(milestoneId: string): void {
+    const data = this.milestoneData.get(milestoneId);
+    if (data) {
+      this.kioskService.openKioskMode(data);
+    }
   }
 }

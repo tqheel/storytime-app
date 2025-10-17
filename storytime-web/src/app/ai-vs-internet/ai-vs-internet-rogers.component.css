@@ -290,6 +290,22 @@
   margin-bottom: 2rem;
 }
 
+/* Apply shared clickable styles to milestone cards */
+.milestone-content {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.milestone-content:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--rogers-shadow-warm);
+  background: linear-gradient(135deg, white 0%, var(--rogers-cream) 100%);
+}
+
+.milestone-content:active {
+  transform: translateY(-2px);
+}
+
 .milestone-title {
   font-size: 1.25rem;
   font-weight: 700;
@@ -397,6 +413,8 @@
     transform: translateY(0);
   }
 }
+
+/* Import shared kiosk styles - styles are now in ../shared/kiosk.css */
 
 /* Responsive Typography */
 @media (max-width: 640px) {
