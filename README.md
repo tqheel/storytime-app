@@ -40,11 +40,12 @@ The application will automatically reload when you make changes to the source fi
 - `npm run watch` - Builds the app in watch mode
 
 ## Versions
-### version 0.0.6
-- **MVP Story Component**: New interactive story presenting Minimum Viable Product concepts and frameworks using Fred Rogers' gentle storytelling approach
-- **Multi-Section Kiosk Navigation**: Enhanced kiosk mode with directional arrow navigation for content that spans multiple screens
-- **Keyboard and Mouse Navigation**: Added left/right arrow key support and clickable navigation arrows for seamless story progression
-- **Comprehensive MVP Education**: Interactive presentation covering JTBD, NABC frameworks, A/B testing, metrics, and real-world case studies
-- **Expandable Story Architecture**: Template-based approach for converting markdown content into interactive story components
-- **Large Content Handling**: Smart pagination system for presenting extensive content in digestible, presentation-friendly sections
+### version 0.0.5
+- **Reusable Kiosk Mode Framework**: Built comprehensive presentation system that any future story can easily implement
+- **Interactive Story Presentation**: Added full-screen kiosk mode for AI vs Internet story with large, meeting-room-friendly fonts
+- **Click-to-Present Functionality**: Made all story content cards clickable for seamless transition to presentation mode
+- **Widescreen Optimized Display**: Created responsive kiosk layout optimized for distance viewing on large displays and projectors
+- **Enhanced User Interaction**: Added visual hover effects and intuitive navigation with ESC key and click-to-close functionality
+- **Developer-Friendly Architecture**: Created reusable components, services, and documentation for easy kiosk implementation in future stories
+- **Meeting Room Ready**: Designed presentation mode specifically for storytelling in conference rooms and educational settings
 
