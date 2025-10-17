@@ -5,6 +5,35 @@ All notable changes to the Storytime App will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.4] - 2025-10-16
+
+### Added
+- **Complete Mr. Rogers Theme Integration**: Applied Mr. Rogers design philosophy and color scheme across all visual elements throughout the entire application
+- **Custom AI vs Internet Component Styling**: Created dedicated Mr. Rogers-themed CSS file (`ai-vs-internet-rogers.component.css`) with complete visual redesign using the neighborhood color palette
+- **Local Chart.js Package**: Installed Chart.js as a local npm dependency for better reliability and consistency
+
+### Changed
+- **Removed External CDN Dependencies**: Eliminated all CDN references including Tailwind CSS and Chart.js, replacing with local packages and custom CSS
+- **Chart.js Import Method**: Converted from CDN script loading to proper ES6 module import for immediate initialization and better performance
+- **Global Theme Application**: Imported Mr. Rogers theme CSS globally to ensure consistent styling across all components  
+- **Visual Element Conversion**: Replaced all Tailwind utility classes with custom Mr. Rogers-themed styles, maintaining functionality while enhancing visual cohesion
+- **Color Scheme Standardization**: Applied consistent Mr. Rogers color palette (cardigan red, neighborhood blue, warm grays) to charts, timelines, and interactive elements
+
+### Removed
+- **Tailwind CSS Dependencies**: Completely removed Tailwind CSS, PostCSS, and Autoprefixer packages in favor of pure custom CSS
+- **External Build Dependencies**: Simplified build process by removing unnecessary external CSS framework dependencies
+- **CDN Script Loading**: Eliminated dynamic script loading mechanism for Chart.js in favor of direct imports
+
+### Technical Details
+- Replaced Tailwind CSS framework with pure custom CSS using Mr. Rogers design system
+- Updated global `styles.css` to only include Mr. Rogers theme imports
+- Refactored AI vs Internet component template to use semantic CSS classes instead of utility classes
+- Converted Chart.js from `this.loadScript('https://cdn.jsdelivr.net/npm/chart.js')` to `import Chart from 'chart.js/auto'`
+- Simplified component initialization by removing async script loading delays
+- Maintained all chart functionality and interactive features while applying neighborhood-inspired styling
+- Improved build performance by eliminating CSS framework processing overhead and external script dependencies
+- Application is now completely self-contained with zero external runtime dependencies
+
 ## [0.0.3] - 2025-10-13 - Commit: 74017c7
 
 ### Added

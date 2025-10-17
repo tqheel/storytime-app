@@ -1,0 +1,414 @@
+/* 
+ * AI vs Internet Component Styles - Mr. Rogers Theme
+ * This file replaces Tailwind CSS classes with Mr. Rogers themed styles
+ */
+
+/* Container and Layout */
+.ai-vs-internet-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1rem 3rem 1rem;
+  background-color: var(--rogers-cream);
+  min-height: 100vh;
+  font-family: var(--rogers-font-family);
+}
+
+@media (min-width: 640px) {
+  .ai-vs-internet-container {
+    padding: 1.5rem 1.5rem 3rem 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .ai-vs-internet-container {
+    padding: 2rem 2rem 3rem 2rem;
+  }
+}
+
+/* Header Styles */
+.ai-vs-internet-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.ai-vs-internet-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--rogers-dark-gray);
+  letter-spacing: -0.025em;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+@media (min-width: 768px) {
+  .ai-vs-internet-title {
+    font-size: 3rem;
+  }
+}
+
+.ai-vs-internet-subtitle {
+  margin-top: 1rem;
+  font-size: 1.125rem;
+  color: var(--rogers-warm-gray);
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.ai-vs-internet-nav {
+  margin-top: 1.5rem;
+}
+
+.ai-vs-internet-back-btn {
+  background: var(--rogers-cardigan);
+  color: white;
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--rogers-radius-md);
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: var(--rogers-shadow-gentle);
+}
+
+.ai-vs-internet-back-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--rogers-shadow-warm);
+}
+
+/* Section Styles */
+.ai-vs-internet-section {
+  margin-bottom: 5rem;
+  padding-top: 2.5rem;
+  border-top: 2px solid var(--rogers-light-gray);
+}
+
+.ai-vs-internet-section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  font-family: var(--rogers-font-family-accent);
+}
+
+.internet-section-title {
+  color: var(--rogers-blue);
+}
+
+.ai-section-title {
+  color: var(--rogers-green);
+}
+
+.comparison-section-title {
+  color: var(--rogers-dark-gray);
+}
+
+/* Timeline Styles */
+.timeline-container {
+  width: 100%;
+  position: relative;
+  margin-bottom: 5rem;
+}
+
+.timeline-line {
+  border-top: 2px solid var(--rogers-light-gray);
+  position: absolute;
+  top: 50%;
+  width: 100%;
+}
+
+.timeline-items {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.timeline-item {
+  position: relative;
+  text-align: center;
+  width: 20%;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.timeline-item:hover {
+  transform: translateY(-4px);
+}
+
+.timeline-dot {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  margin: 0 auto -0.5rem auto;
+  z-index: 10;
+  position: relative;
+  box-shadow: var(--rogers-shadow-gentle);
+}
+
+.internet-timeline-dot {
+  background-color: var(--rogers-blue);
+}
+
+.ai-timeline-dot {
+  background-color: var(--rogers-green);
+}
+
+.timeline-year {
+  margin-top: 2rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--rogers-dark-gray);
+}
+
+.timeline-description {
+  font-size: 0.75rem;
+  color: var(--rogers-warm-gray);
+  margin-top: 0.25rem;
+}
+
+/* Chart Styles */
+.chart-section {
+  margin: 5rem 0;
+}
+
+.chart-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--rogers-dark-gray);
+  margin-bottom: 1rem;
+}
+
+.chart-subtitle {
+  text-align: center;
+  color: var(--rogers-warm-gray);
+  margin-bottom: 2rem;
+  max-width: 32rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.chart-container {
+  background: white;
+  padding: 2rem;
+  border-radius: var(--rogers-radius-lg);
+  box-shadow: var(--rogers-shadow-gentle);
+  margin: 0 auto;
+}
+
+/* Content Layout */
+.content-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .content-layout {
+    flex-direction: row;
+  }
+}
+
+.content-sidebar {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .content-sidebar {
+    width: 25%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .content-sidebar {
+    width: 20%;
+  }
+}
+
+.content-main {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .content-main {
+    width: 75%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .content-main {
+    width: 80%;
+  }
+}
+
+/* Navigation Sidebar */
+.milestone-nav {
+  position: sticky;
+  top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nav-link {
+  display: block;
+  padding: 0.75rem 1rem;
+  border-radius: var(--rogers-radius-md);
+  color: var(--rogers-dark-gray);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 0.875rem;
+}
+
+.nav-link:hover {
+  background-color: var(--rogers-light-gray);
+  color: var(--rogers-red);
+  transform: translateX(4px);
+}
+
+.internet-nav-link:hover {
+  background-color: #e3f2fd;
+  color: var(--rogers-blue);
+}
+
+.ai-nav-link:hover {
+  background-color: #e8f5e8;
+  color: var(--rogers-green);
+}
+
+/* Milestone Content */
+.milestone-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: white;
+  padding: 2rem;
+  border-radius: var(--rogers-radius-xl);
+  box-shadow: var(--rogers-shadow-gentle);
+  margin-bottom: 2rem;
+}
+
+.milestone-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-family: var(--rogers-font-family-accent);
+}
+
+.internet-milestone-title {
+  color: var(--rogers-blue);
+}
+
+.ai-milestone-title {
+  color: var(--rogers-green);
+}
+
+.milestone-text {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--rogers-dark-gray);
+}
+
+/* Conclusion Section */
+.conclusion-container {
+  max-width: 64rem;
+  margin: 4rem auto 0 auto;
+  background: white;
+  padding: 2rem;
+  border-radius: var(--rogers-radius-xl);
+  box-shadow: var(--rogers-shadow-warm);
+}
+
+.conclusion-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--rogers-dark-gray);
+  margin-bottom: 1rem;
+}
+
+.conclusion-text {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--rogers-dark-gray);
+  margin-bottom: 1rem;
+}
+
+.conclusion-list {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+  margin-top: 1rem;
+}
+
+.conclusion-list li {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 0.5rem;
+}
+
+.comparison-section {
+  padding-top: 5rem;
+  margin-top: 2.5rem;
+  border-top: 4px solid var(--rogers-light-gray);
+}
+
+/* Comparison specific styles */
+.comparison-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.comparison-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--rogers-dark-gray);
+  letter-spacing: -0.025em;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .comparison-title {
+    font-size: 3rem;
+  }
+}
+
+.comparison-subtitle {
+  margin-top: 1rem;
+  font-size: 1.125rem;
+  color: var(--rogers-warm-gray);
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+/* Animation for entrance */
+.ai-vs-internet-container > * {
+  animation: gentleEntrance 0.8s ease-out;
+}
+
+@keyframes gentleEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Typography */
+@media (max-width: 640px) {
+  .ai-vs-internet-title {
+    font-size: 1.875rem;
+  }
+  
+  .ai-vs-internet-section-title {
+    font-size: 1.5rem;
+  }
+  
+  .chart-title {
+    font-size: 1.25rem;
+  }
+}
