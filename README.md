@@ -40,6 +40,16 @@ The application will automatically reload when you make changes to the source fi
 - `npm run watch` - Builds the app in watch mode
 
 ## Versions
+### version 0.0.6
+- **MVP Story Component**: Interactive educational story about Minimum Viable Product using Fred Rogers' storytelling approach
+- **Enhanced Kiosk Navigation**: Multi-section navigation with left/right arrows for exploring complex content sequentially
+- **Full Keyboard Support**: Arrow keys navigate between sections, ESC key exits - complete keyboard accessibility
+- **Mouse Click Navigation**: Large, discoverable arrow buttons with pulsing animations guide users through content
+- **8 Interactive Cards**: What is MVP, Four Key Parts, The Journey, Real Examples, Why Kind, Questions, Mindset, Conclusion
+- **Progressive Learning**: Content organized for gradual understanding of complex product development concepts
+- **Real-World Examples**: Wright Brothers, Amazon, Instagram stories showing MVP in action
+- **Fred Rogers Philosophy**: Gentle, accessible narrative emphasizing kindness, patience, and learning from mistakes
+
 ### version 0.0.5
 - **Reusable Kiosk Mode Framework**: Built comprehensive presentation system that any future story can easily implement
 - **Interactive Story Presentation**: Added full-screen kiosk mode for AI vs Internet story with large, meeting-room-friendly fonts
