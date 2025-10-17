@@ -38,6 +38,14 @@ import { RouterLink } from '@angular/router';
             Dive deep into MVP development with comprehensive frameworks and real-world case studies. Learn Jobs-to-be-Done (JTBD) to understand customer needs, master the NABC framework for value proposition, explore A/B experimentation for data-driven decisions, and discover essential metrics. Study 6 detailed case studies including successes like Dropbox, Buffer, and Airbnb, plus lessons from Quibi, Google Glass, and Segway. Perfect for product managers, entrepreneurs, and anyone building products thoughtfully with rigorous methodology.
           </p>
         </a>
+
+        <a routerLink="/ai-best-practices" class="story-card">
+          <div class="card-emoji">🤖</div>
+          <h2 class="card-title">Working with Your AI Neighbors</h2>
+          <p class="card-description">
+            Learn best practices for using generative AI tools through Fred Rogers' gentle guidance. Discover how to write effective prompts, set up custom instructions, and understand key AI concepts explained simply. Compare enterprise AI tools like ChatGPT, Microsoft 365 Copilot, GitHub Copilot, and AWS Q to find the right fit for your needs. Explore real-world use cases, ethical considerations, and security best practices. Perfect for everyone from novices to senior leaders wanting to work thoughtfully and responsibly with AI.
+          </p>
+        </a>
       </div>
     </div>
 
