@@ -6,6 +6,10 @@ export const routes: Routes = [
     loadComponent: () => import('./ai-vs-internet/ai-vs-internet.component').then(m => m.AiVsInternetComponent)
   },
   {
+    path: 'mvp-story',
+    loadComponent: () => import('./mvp-story/mvp-story.component').then(m => m.MvpStoryComponent)
+  },
+  {
     path: '',
     redirectTo: '/home',
     pathMatch: 'full'

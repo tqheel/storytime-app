@@ -22,6 +22,14 @@ import { RouterLink } from '@angular/router';
             Discover the fascinating comparison between the Internet's adoption journey (1993-2015) and the meteoric rise of Generative AI (2022-2024). This interactive story uses beautiful visualizations to show how AI adoption is happening at unprecedented speed, reaching milestones in months that took the Internet years to achieve. Explore timeline narratives, user growth charts, and gain insights into what this rapid technological shift means for our future. Perfect for understanding the scale and implications of our current AI revolution through gentle, accessible storytelling.
           </p>
         </a>
+
+        <a routerLink="/mvp-story" class="story-card">
+          <div class="card-emoji">🌱</div>
+          <h2 class="card-title">The Story of Building Something Meaningful</h2>
+          <p class="card-description">
+            Learn about Minimum Viable Product (MVP) through Fred Rogers' gentle wisdom. Discover how to build new things thoughtfully, starting small and learning as you go. Explore real-world examples from the Wright Brothers to Instagram, understand why MVP is kind and respectful, and learn the seven steps to bring your dreams to life. This interactive story presents complex product development concepts in an accessible, whimsical format with expandable cards and presentation mode perfect for learning and sharing. Click any card to explore deeper into each concept.
+          </p>
+        </a>
       </div>
     </div>
 
