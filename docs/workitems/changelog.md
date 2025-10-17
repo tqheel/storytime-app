@@ -5,7 +5,7 @@ All notable changes to the Storytime App will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.0.4] - 2025-10-16
+## [0.0.4] - 2025-10-16 - af90f68cf705e327c23d539a092c8f7b0b38aefe
 
 ### Added
 - **Complete Mr. Rogers Theme Integration**: Applied Mr. Rogers design philosophy and color scheme across all visual elements throughout the entire application
