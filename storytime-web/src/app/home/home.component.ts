@@ -30,6 +30,14 @@ import { RouterLink } from '@angular/router';
             Learn about Minimum Viable Product (MVP) through Fred Rogers' gentle wisdom. Discover how to build new things thoughtfully, starting small and learning as you go. Explore real-world examples from the Wright Brothers to Instagram, understand why MVP is kind and respectful, and learn the seven steps to bring your dreams to life. This interactive story presents complex product development concepts in an accessible, whimsical format with expandable cards and presentation mode perfect for learning and sharing. Click any card to explore deeper into each concept.
           </p>
         </a>
+
+        <a routerLink="/mvp-frameworks" class="story-card">
+          <div class="card-emoji">📐</div>
+          <h2 class="card-title">MVP Research & Analysis</h2>
+          <p class="card-description">
+            Dive deep into MVP development with comprehensive frameworks and real-world case studies. Learn Jobs-to-be-Done (JTBD) to understand customer needs, master the NABC framework for value proposition, explore A/B experimentation for data-driven decisions, and discover essential metrics. Study 6 detailed case studies including successes like Dropbox, Buffer, and Airbnb, plus lessons from Quibi, Google Glass, and Segway. Perfect for product managers, entrepreneurs, and anyone building products thoughtfully with rigorous methodology.
+          </p>
+        </a>
       </div>
     </div>
 

@@ -10,6 +10,10 @@ export const routes: Routes = [
     loadComponent: () => import('./mvp-story/mvp-story.component').then(m => m.MvpStoryComponent)
   },
   {
+    path: 'mvp-frameworks',
+    loadComponent: () => import('./mvp-frameworks/mvp-frameworks.component').then(m => m.MvpFrameworksComponent)
+  },
+  {
     path: '',
     redirectTo: '/home',
     pathMatch: 'full'
