@@ -1,1 +1,13 @@
 .DS_Store
+
+# Angular build artifacts
+storytime-web/dist/
+storytime-web/.angular/
+storytime-web/node_modules/
+
+# Dependency directories
+node_modules/
+
+# Build outputs
+dist/
+.angular/
