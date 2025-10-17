@@ -39,6 +39,31 @@ The application will automatically reload when you make changes to the source fi
 - `npm test` - Runs unit tests
 - `npm run watch` - Builds the app in watch mode
 
+## Deployment
+
+The Storytime App is automatically deployed to GitHub Pages whenever changes are pushed to the `master` branch.
+
+### Live Site
+The application is available at: [https://tqheel.github.io/storytime-app/](https://tqheel.github.io/storytime-app/)
+
+### Automated Deployment
+The deployment process is handled by a GitHub Actions workflow (`.github/workflows/deploy.yml`) that:
+1. Builds the Angular application with the correct base href (`/storytime-app/`)
+2. Creates a `404.html` file (copy of `index.html`) to enable SPA routing on GitHub Pages
+3. Deploys the built files to GitHub Pages
+
+### Manual Deployment
+If you need to trigger a deployment manually:
+1. Go to the [Actions tab](https://github.com/tqheel/storytime-app/actions) in the GitHub repository
+2. Select the "Deploy to GitHub Pages" workflow
+3. Click "Run workflow" and select the `master` branch
+
+### GitHub Pages Setup
+To enable GitHub Pages for this repository:
+1. Go to repository Settings → Pages
+2. Under "Build and deployment", set Source to "GitHub Actions"
+3. The site will be automatically deployed on the next push to `master`
+
 ## Versions
 ### version 0.0.6
 - **MVP Story Component**: Interactive educational story about Minimum Viable Product using Fred Rogers' storytelling approach
