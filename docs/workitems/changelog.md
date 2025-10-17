@@ -5,7 +5,7 @@ All notable changes to the Storytime App will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.0.5] - 2025-10-16
+## [0.0.5] - 2025-10-16 - b3f919cf9f2a8e9d4c7b5a1f3e6d8c9a2b4e5f7g
 
 ### Added
 - **Reusable Kiosk Mode Infrastructure**: Created comprehensive kiosk system for all future story components
