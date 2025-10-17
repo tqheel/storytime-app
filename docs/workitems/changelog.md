@@ -5,6 +5,52 @@ All notable changes to the Storytime App will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.7] - 2025-10-17 - TBD
+
+### Added
+- **AI Best Practices Story Component**: Complete interactive educational story about working responsibly with generative AI tools
+  - 9 expandable cards covering Effective Prompts, Custom Instructions, Key Definitions, Use Cases, Enterprise Tool Comparison, Ethics, Common Pitfalls, Security, and Conclusion
+  - Content designed for broad audience including novices, non-technical users, and senior leaders
+  - Fred Rogers-inspired narrative making complex AI concepts gentle and accessible
+- **Comprehensive AI Content**: Created detailed markdown guide (ai-best-practices.md) covering:
+  - How to write effective prompts with clear examples
+  - Setting up custom instructions for personalized AI assistance
+  - Key AI terminology explained simply (LLM, tokens, context windows, hallucinations, etc.)
+  - Practical use cases for business users requiring no technical expertise
+  - Ethical considerations and responsible AI usage guidelines
+  - Common pitfalls and how to avoid them
+  - Security and privacy best practices for enterprise environments
+- **Enterprise AI Tools Comparison**: Detailed analysis of four major enterprise AI platforms
+  - **ChatGPT Enterprise**: Best for general writing, brainstorming, and creative tasks
+  - **Microsoft 365 Copilot**: Ideal for Office integration and document-specific assistance
+  - **GitHub Copilot Enterprise**: Specialized tool for software developers writing code
+  - **AWS Q Business**: Best for company-specific knowledge and AWS cloud integration
+  - Capabilities matrix comparing features across all four tools
+  - Guidance on selecting the right tool for different business problems
+  - Privacy and security considerations for each platform
+- **Kiosk Mode Integration**: Full presentation support with multi-section navigation
+  - Click-to-expand functionality on all story cards
+  - Keyboard navigation (arrow keys and ESC) for accessibility
+  - Mouse-based navigation with intuitive arrow buttons
+  - Large, meeting-room-friendly display for distance viewing
+
+### Changed
+- **App Routes**: Added lazy-loaded route for ai-best-practices component
+- **Home Component**: Added new AI Best Practices story card to main navigation
+- **Package Version**: Updated to 0.0.7
+
+### Technical Details
+- Created standalone Angular component following established architecture patterns
+- Implemented 9 distinct content sections with rich, formatted text
+- Integrated with existing KioskService for consistent presentation experience
+- Applied Mr. Rogers design theme with warm colors and gentle interactions
+- Maintained responsive design supporting mobile through large displays
+- Content structured for progressive learning from basic concepts to advanced topics
+- Added comprehensive security guidance appropriate for enterprise environments
+
+### Design Philosophy
+This version continues Fred Rogers' approach of transforming complex topics into gentle, accessible narratives. The AI best practices content treats learners with respect, acknowledging that understanding AI doesn't require technical expertise - just curiosity, patience, and kindness. The comparison of enterprise tools is presented as "different neighbors with different talents" rather than a competitive analysis, maintaining the welcoming, non-threatening tone throughout.
+
 ## [0.0.6] - 2025-10-17 - TBD
 
 ### Added

@@ -14,6 +14,10 @@ export const routes: Routes = [
     loadComponent: () => import('./mvp-frameworks/mvp-frameworks.component').then(m => m.MvpFrameworksComponent)
   },
   {
+    path: 'ai-best-practices',
+    loadComponent: () => import('./ai-best-practices/ai-best-practices.component').then(m => m.AiBestPracticesComponent)
+  },
+  {
     path: '',
     redirectTo: '/home',
     pathMatch: 'full'

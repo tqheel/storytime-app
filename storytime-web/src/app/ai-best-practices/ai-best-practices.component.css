@@ -1,0 +1,286 @@
+/* AI Best Practices Component Styles - Mr. Rogers Inspired */
+
+.ai-best-practices-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: Georgia, 'Times New Roman', serif;
+  background: linear-gradient(135deg, #e8f4f8 0%, #f5f0f8 100%);
+  min-height: 100vh;
+}
+
+/* Header Section */
+.ai-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.ai-title {
+  font-size: 3rem;
+  color: #2c5f7c;
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+  background: linear-gradient(135deg, #2c5f7c 0%, #5a8ba8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.ai-subtitle {
+  font-size: 1.3rem;
+  color: #666;
+  margin: 0;
+  font-style: italic;
+}
+
+.ai-nav {
+  margin-top: 1.5rem;
+}
+
+.ai-back-btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: #d32f2f;
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(211, 47, 47, 0.2);
+}
+
+.ai-back-btn:hover {
+  background: #b71c1c;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
+}
+
+/* Introduction Section */
+.ai-introduction {
+  margin-bottom: 3rem;
+}
+
+.intro-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-left: 6px solid #2c5f7c;
+}
+
+.intro-title {
+  color: #2c5f7c;
+  font-size: 2rem;
+  margin: 0 0 1rem 0;
+}
+
+.intro-text {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #444;
+  margin: 0;
+}
+
+/* Main Content Section */
+.ai-main-content {
+  margin-bottom: 3rem;
+}
+
+.section-header {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #2c5f7c;
+  margin-bottom: 2.5rem;
+  font-weight: 600;
+}
+
+/* Cards Grid */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Individual Card Styles */
+.ai-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 3px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.ai-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #2c5f7c 0%, #5a8ba8 50%, #2c5f7c 100%);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.ai-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  border-color: #2c5f7c;
+}
+
+.ai-card:hover::before {
+  transform: scaleX(1);
+}
+
+.card-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  animation: gentle-bounce 2s ease-in-out infinite;
+}
+
+@keyframes gentle-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.card-title {
+  font-size: 1.6rem;
+  color: #2c5f7c;
+  margin: 0 0 1rem 0;
+  font-weight: 600;
+}
+
+.card-preview {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.6;
+  margin: 0 0 1rem 0;
+  flex-grow: 1;
+}
+
+.card-expand-hint {
+  color: #d32f2f;
+  font-weight: 500;
+  font-size: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid #f0f0f0;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.ai-card:hover .card-expand-hint {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Closing Section */
+.ai-closing {
+  margin-top: 4rem;
+}
+
+.closing-card {
+  background: linear-gradient(135deg, #2c5f7c 0%, #5a8ba8 100%);
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  text-align: center;
+  color: white;
+}
+
+.closing-quote {
+  font-size: 1.6rem;
+  font-style: italic;
+  line-height: 1.8;
+  margin: 0 0 1rem 0;
+  font-weight: 500;
+}
+
+.closing-attribution {
+  font-size: 1.2rem;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .ai-best-practices-container {
+    padding: 1rem;
+  }
+
+  .ai-title {
+    font-size: 2rem;
+  }
+
+  .ai-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .section-header {
+    font-size: 1.8rem;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .card-icon {
+    font-size: 3rem;
+  }
+
+  .card-title {
+    font-size: 1.4rem;
+  }
+
+  .card-preview {
+    font-size: 1rem;
+  }
+
+  .intro-card,
+  .closing-card {
+    padding: 1.5rem;
+  }
+
+  .intro-title {
+    font-size: 1.6rem;
+  }
+
+  .intro-text {
+    font-size: 1.1rem;
+  }
+
+  .closing-quote {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ai-title {
+    font-size: 1.6rem;
+  }
+
+  .ai-subtitle {
+    font-size: 1rem;
+  }
+
+  .card-expand-hint {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
