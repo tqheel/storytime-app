@@ -11,3 +11,27 @@ node_modules/
 # Build outputs
 dist/
 .angular/
+
+# PowerPoint files - generated content, not source
+*.pptx
+*.ppt
+
+# Python cache files (for sliderator)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+
+# Virtual environments
+venv/
+env/
+.env
+.venv/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
