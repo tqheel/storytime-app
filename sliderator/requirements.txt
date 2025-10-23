@@ -1,0 +1,17 @@
+# Python dependencies for Sliderator
+# Markdown to PowerPoint conversion tool
+
+# Core dependencies
+python-pptx>=0.6.21
+markdown>=3.4.0
+beautifulsoup4>=4.11.0
+lxml>=4.9.0
+
+# Optional dependencies for enhanced functionality
+# Pillow>=9.0.0  # For image processing if needed in future
+# openpyxl>=3.0.0  # For Excel integration if needed
+
+# Development dependencies (uncomment for development)
+# pytest>=7.0.0
+# black>=22.0.0
+# flake8>=4.0.0
