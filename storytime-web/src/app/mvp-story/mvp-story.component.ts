@@ -3,6 +3,8 @@ import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { KioskService } from '../services/kiosk.service';
 import { KioskOverlayComponent } from '../components/kiosk-overlay.component';
+import { PresentationService } from '../services/presentation.service';
+import { PresentationOverlayComponent } from '../components/presentation-overlay.component';
 
 interface MvpSection {
   title: string;
@@ -11,7 +13,7 @@ interface MvpSection {
 
 @Component({
   selector: 'app-mvp-story',
-  imports: [RouterLink, CommonModule, KioskOverlayComponent],
+  imports: [RouterLink, CommonModule, KioskOverlayComponent, PresentationOverlayComponent],
   template: `
     <div class="mvp-story-container">
       <header class="mvp-header">
@@ -132,13 +134,19 @@ interface MvpSection {
 
       <!-- Kiosk Mode Overlay -->
       <app-kiosk-overlay></app-kiosk-overlay>
+      
+      <!-- Presentation Mode Overlay -->
+      <app-presentation-overlay></app-presentation-overlay>
     </div>
   `,
   styleUrls: ['./mvp-story.component.css', '../shared/kiosk.css']
 })
 export class MvpStoryComponent {
   
-  constructor(private kioskService: KioskService) {}
+  constructor(
+    private kioskService: KioskService,
+    private presentationService: PresentationService
+  ) {}
 
   private mvpSections = new Map<string, MvpSection>([
     ['what-is-mvp', {
@@ -218,19 +226,25 @@ export class MvpStoryComponent {
   openKioskMode(sectionId: string): void {
     const section = this.mvpSections.get(sectionId);
     if (section) {
-      // Convert the section content array into a format the kiosk service can handle
-      // We'll pass all sections to enable navigation
-      const allSections = Array.from(this.mvpSections.entries()).map(([id, data]) => ({
-        id,
-        title: data.title,
-        text: data.content.join('\n\n')
+      // Use new Reveal.js presentation mode instead of old kiosk mode
+      this.openPresentationMode(sectionId);
+    }
+  }
+
+  openPresentationMode(sectionId: string): void {
+    const section = this.mvpSections.get(sectionId);
+    if (section) {
+      // Create slides from the section content
+      const slides = section.content.map(paragraph => ({
+        content: `<h2>${section.title}</h2><p>${paragraph}</p>`,
+        markdown: false
       }));
       
-      // Find the index of the current section
-      const currentIndex = allSections.findIndex(s => s.id === sectionId);
-      
-      // Open kiosk mode with navigation support
-      this.kioskService.openKioskModeWithNavigation(allSections, currentIndex);
+      // Open presentation with Reveal.js
+      this.presentationService.openPresentation({
+        title: section.title,
+        slides: slides
+      });
     }
   }
 }
