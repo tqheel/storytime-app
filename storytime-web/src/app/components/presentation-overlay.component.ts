@@ -66,6 +66,8 @@ export class PresentationOverlayComponent implements OnInit, OnDestroy, AfterVie
 
   ngOnDestroy(): void {
     this.destroyReveal();
+    // Ensure event listener is removed
+    document.removeEventListener('keydown', this.handleKeyDown);
   }
 
   private initializePresentation(data: any): void {

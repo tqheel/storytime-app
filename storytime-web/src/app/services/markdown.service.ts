@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, SecurityContext } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { marked } from 'marked';
 import DOMPurify from 'dompurify';
@@ -29,7 +29,7 @@ export class MarkdownService {
     const cleanHtml = DOMPurify.sanitize(rawHtml);
     
     // Return as SafeHtml for Angular
-    return this.sanitizer.sanitize(1, cleanHtml) || '';
+    return this.sanitizer.sanitize(SecurityContext.HTML, cleanHtml) || '';
   }
 
   /**

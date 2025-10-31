@@ -5,6 +5,7 @@ import { KioskService } from '../services/kiosk.service';
 import { KioskOverlayComponent } from '../components/kiosk-overlay.component';
 import { PresentationService } from '../services/presentation.service';
 import { PresentationOverlayComponent } from '../components/presentation-overlay.component';
+import DOMPurify from 'dompurify';
 
 interface MvpSection {
   title: string;
@@ -234,11 +235,16 @@ export class MvpStoryComponent {
   openPresentationMode(sectionId: string): void {
     const section = this.mvpSections.get(sectionId);
     if (section) {
-      // Create slides from the section content
-      const slides = section.content.map(paragraph => ({
-        content: `<h2>${section.title}</h2><p>${paragraph}</p>`,
-        markdown: false
-      }));
+      // Create slides from the section content with proper sanitization
+      const slides = section.content.map(paragraph => {
+        // Sanitize title and paragraph to prevent XSS
+        const sanitizedTitle = DOMPurify.sanitize(section.title);
+        const sanitizedParagraph = DOMPurify.sanitize(paragraph);
+        return {
+          content: `<h2>${sanitizedTitle}</h2><p>${sanitizedParagraph}</p>`,
+          markdown: false
+        };
+      });
       
       // Open presentation with Reveal.js
       this.presentationService.openPresentation({
