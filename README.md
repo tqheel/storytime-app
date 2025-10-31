@@ -65,17 +65,15 @@ To enable GitHub Pages for this repository:
 3. The site will be automatically deployed on the next push to `master`
 
 ## Versions
-### version 0.0.7
-- **AI Best Practices Story Component**: Comprehensive interactive guide for working responsibly with generative AI tools
-- **Broad Audience Focus**: Content designed for novices, non-technical users, and senior leaders - no technical expertise required
-- **9 Educational Cards**: Effective Prompts, Custom Instructions, Key Definitions, Use Cases, Enterprise Tool Comparison, Ethics, Common Pitfalls, Security, and Conclusion
-- **Enterprise AI Tools Comparison**: Detailed analysis comparing ChatGPT Enterprise, Microsoft 365 Copilot, GitHub Copilot Enterprise, and AWS Q
-- **Practical Guidance**: Real-world examples of how to write better prompts, set up custom instructions, and choose the right AI tool
-- **Simple Definitions**: Complex AI terms (LLM, tokens, context windows, hallucinations) explained in accessible language
-- **Ethical Framework**: Comprehensive coverage of responsible AI use including privacy, security, bias awareness, and transparency
-- **Business Use Cases**: Specific examples for business leaders, non-technical professionals, and everyday tasks
-- **Fred Rogers Philosophy**: Gentle, patient teaching style making AI accessible without overwhelming technical jargon
-- **Full Kiosk Support**: Presentation-ready mode with keyboard and mouse navigation for sharing insights with teams
+### version 0.0.8
+- **Reveal.js Presentation Mode**: PowerPoint-style presentations replacing previous kiosk mode UI
+- **Individual Story Slide Decks**: Each card opens as complete presentation with multiple slides
+- **Restricted Navigation**: Arrow controls work only within current card's slides, preventing cross-card navigation
+- **Smart Progress Tracking**: Real-time progress bar showing "x of y" format and percentage completion
+- **Markdown Rendering Service**: Dynamic content parsing with HTML sanitization for security
+- **Professional Presentation Experience**: Smooth slide transitions with Fred Rogers theme preserved
+- **Keyboard Accessibility**: Full keyboard navigation with arrow keys and ESC to exit
+- **Enhanced Meeting Mode**: Optimized for sharing stories in conference rooms and educational settings
 
 ### version 0.0.6
 - **MVP Story Component**: Interactive educational story about Minimum Viable Product using Fred Rogers' storytelling approach

@@ -5,6 +5,62 @@ All notable changes to the Storytime App will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.8] - 2025-10-31 - TBD
+
+### Added
+- **Reveal.js Presentation Mode**: Replaced kiosk mode UI with Reveal.js framework for PowerPoint-style presentations
+  - Each story card opens as complete Reveal.js slide deck with smooth transitions
+  - Professional presentation experience with centered content and Fred Rogers theme
+  - Navigation restricted to current card's slides only - no cross-card navigation
+  - Arrow controls properly disabled on first/last slides of each card
+- **Custom Progress Bar Component**: Real-time slide tracking outside Reveal.js viewport
+  - Displays current position as "x of y" format (e.g., "3 of 8")
+  - Shows percentage completion for current card (e.g., "67%")
+  - Colored progress bar with gradient fill from blue to red
+  - Non-interfering placement at bottom of screen
+- **MarkdownService**: Angular service for dynamic content rendering
+  - Parses markdown content using marked library
+  - Sanitizes HTML output using DOMPurify for security
+  - Supports standard markdown syntax (headers, lists, links, emphasis, code blocks)
+  - Injectable service available throughout application
+- **PresentationService**: Manages Reveal.js presentation state
+  - Controls presentation lifecycle (open/close)
+  - Tracks progress and updates progress bar in real-time
+  - Manages body scroll lock during presentations
+  - RxJS observables for reactive state management
+- **PresentationOverlayComponent**: Full-screen Reveal.js container
+  - Loads Reveal.js library dynamically after view initialization
+  - Creates slides from content data with markdown support
+  - Configures keyboard navigation (arrow keys, ESC)
+  - Handles cleanup on component destruction
+
+### Changed
+- **MVP Story Component**: Updated to use new Reveal.js presentation mode
+  - Converted section content to individual slides
+  - Each paragraph becomes one slide for better presentation flow
+  - Maintains backward compatibility with existing content structure
+- **Angular Build Configuration**: Increased CSS budget to accommodate Reveal.js styles
+  - Updated anyComponentStyle budget from 20kB to 100kB
+  - Prevents build failures from large Reveal.js CSS files
+- **Package Dependencies**: Added presentation and markdown libraries
+  - reveal.js ^5.2.1 - Presentation framework
+  - marked ^16.4.1 - Markdown parser
+  - dompurify ^3.3.0 - HTML sanitizer
+  - @types/reveal.js - TypeScript definitions
+  - @types/marked, @types/dompurify - Additional type definitions
+
+### Technical Details
+- Implemented content preservation pattern for Reveal.js integration
+- Reveal.js initialized with linear navigation mode for restricted slide boundaries
+- Custom CSS overrides apply Fred Rogers color scheme to Reveal.js slides
+- Progress tracking uses Reveal.js slidechanged event
+- ESC key listener properly cleans up on component destruction
+- Keyboard navigation fully accessible with screen reader support
+- Responsive design maintains presentation quality on various screen sizes
+
+### Design Philosophy
+Version 0.0.8 enhances the Fred Rogers storytelling experience with professional presentation capabilities. Like Mr. Rogers presenting to an audience, the Reveal.js integration provides a warm, engaging way to share stories in meeting rooms and educational settings. The progress bar gently guides viewers through each narrative journey, while the restricted navigation keeps focus on one story at a time - respecting the viewer's attention and the integrity of each tale.
+
 ## [0.0.7] - 2025-10-17 - TBD
 
 ### Added
