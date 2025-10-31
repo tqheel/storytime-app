@@ -1,8 +1,10 @@
 import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PresentationService } from '../services/presentation.service';
+import { Subscription } from 'rxjs';
+import { PresentationService, PresentationData } from '../services/presentation.service';
 import { MarkdownService } from '../services/markdown.service';
 import Reveal from 'reveal.js';
+import DOMPurify from 'dompurify';
 
 @Component({
   selector: 'app-presentation-overlay',
@@ -39,8 +41,10 @@ import Reveal from 'reveal.js';
   styleUrls: ['../shared/presentation.css']
 })
 export class PresentationOverlayComponent implements OnInit, OnDestroy, AfterViewInit {
-  private revealInstance: any = null;
+  private revealInstance: Reveal.Api | null = null;
   private initialized = false;
+  private presentationDataSubscription?: Subscription;
+  private eventListenerAttached = false;
 
   constructor(
     public presentationService: PresentationService,
@@ -48,8 +52,8 @@ export class PresentationOverlayComponent implements OnInit, OnDestroy, AfterVie
   ) {}
 
   ngOnInit(): void {
-    // Subscribe to presentation data changes
-    this.presentationService.presentationData$.subscribe(data => {
+    // Subscribe to presentation data changes and store subscription
+    this.presentationDataSubscription = this.presentationService.presentationData$.subscribe(data => {
       if (data && this.initialized) {
         this.initializePresentation(data);
       }
@@ -65,14 +69,18 @@ export class PresentationOverlayComponent implements OnInit, OnDestroy, AfterVie
   }
 
   ngOnDestroy(): void {
+    // Unsubscribe to prevent memory leak
+    if (this.presentationDataSubscription) {
+      this.presentationDataSubscription.unsubscribe();
+    }
     this.destroyReveal();
     // Ensure event listener is removed
-    document.removeEventListener('keydown', this.handleKeyDown);
+    this.removeKeyboardListener();
   }
 
-  private initializePresentation(data: any): void {
-    // Wait for DOM to be ready
-    setTimeout(() => {
+  private initializePresentation(data: PresentationData): void {
+    // Use requestAnimationFrame for better DOM readiness
+    requestAnimationFrame(() => {
       const slidesContainer = document.querySelector('.reveal .slides');
       if (!slidesContainer) return;
 
@@ -80,15 +88,17 @@ export class PresentationOverlayComponent implements OnInit, OnDestroy, AfterVie
       slidesContainer.innerHTML = '';
 
       // Create slides
-      data.slides.forEach((slide: any) => {
+      data.slides.forEach((slide) => {
         const section = document.createElement('section');
         
         if (slide.markdown) {
-          // Parse markdown content
+          // Parse markdown content (already sanitized in MarkdownService)
           const htmlContent = this.markdownService.parseToString(slide.content);
           section.innerHTML = htmlContent;
         } else {
-          section.innerHTML = slide.content;
+          // Always sanitize HTML content to prevent XSS
+          const sanitizedContent = DOMPurify.sanitize(slide.content);
+          section.innerHTML = sanitizedContent;
         }
         
         slidesContainer.appendChild(section);
@@ -101,7 +111,7 @@ export class PresentationOverlayComponent implements OnInit, OnDestroy, AfterVie
       } else {
         this.initializeReveal(data.slides.length);
       }
-    }, 100);
+    });
   }
 
   private initializeReveal(totalSlides: number): void {
@@ -142,18 +152,24 @@ export class PresentationOverlayComponent implements OnInit, OnDestroy, AfterVie
 
     this.revealInstance.initialize().then(() => {
       // Update progress on slide change
-      this.revealInstance.on('slidechanged', (event: any) => {
+      this.revealInstance!.on('slidechanged', (event: any) => {
         const currentSlide = event.indexh + 1;
         this.presentationService.updateProgress(currentSlide, totalSlides);
       });
 
       // Listen for ESC key to close presentation
-      this.revealInstance.on('paused', () => {
+      this.revealInstance!.on('paused', () => {
         // Optional: handle pause state
       });
 
-      // Handle keyboard events for ESC
-      document.addEventListener('keydown', this.handleKeyDown);
+      // Add keyboard listener only if not already attached
+      this.addKeyboardListener();
+    }).catch((error) => {
+      // Handle Reveal.js initialization errors
+      console.error('Failed to initialize Reveal.js:', error);
+      // Notify user of error
+      alert('Failed to load presentation. Please try again.');
+      this.closePresentation();
     });
   }
 
@@ -163,12 +179,28 @@ export class PresentationOverlayComponent implements OnInit, OnDestroy, AfterVie
     }
   };
 
+  private addKeyboardListener(): void {
+    // Remove existing listener before adding to prevent duplicates
+    if (this.eventListenerAttached) {
+      this.removeKeyboardListener();
+    }
+    document.addEventListener('keydown', this.handleKeyDown);
+    this.eventListenerAttached = true;
+  }
+
+  private removeKeyboardListener(): void {
+    if (this.eventListenerAttached) {
+      document.removeEventListener('keydown', this.handleKeyDown);
+      this.eventListenerAttached = false;
+    }
+  }
+
   private destroyReveal(): void {
     if (this.revealInstance) {
       this.revealInstance.destroy();
       this.revealInstance = null;
     }
-    document.removeEventListener('keydown', this.handleKeyDown);
+    this.removeKeyboardListener();
   }
 
   closePresentation(): void {
